@@ -86,8 +86,9 @@ class BuyerSegmentationAgent(BaseAgent):
     name = "buyer_segmentation_agent"
     section_name = "buyer universe and targeting"
     objective = "identify and prioritize likely buyers"
+    proposal_section_id = "buyer_strategy"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

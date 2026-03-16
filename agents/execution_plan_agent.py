@@ -72,8 +72,9 @@ class ExecutionPlanAgent(BaseAgent):
     name = "execution_plan_agent"
     section_name = "execution plan"
     objective = "design sale process and timetable"
+    proposal_section_id = "execution_plan"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

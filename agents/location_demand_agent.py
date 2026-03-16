@@ -73,8 +73,9 @@ class LocationDemandAgent(BaseAgent):
     name = "location_demand_agent"
     section_name = "location and demand mapping"
     objective = "connect location to transaction attractiveness"
+    proposal_section_id = "market_context"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

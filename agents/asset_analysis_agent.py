@@ -83,8 +83,9 @@ class AssetAnalysisAgent(BaseAgent):
     name = "asset_analysis_agent"
     section_name = "asset understanding"
     objective = "define and position the asset"
+    proposal_section_id = "asset_understanding"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

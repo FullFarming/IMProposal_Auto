@@ -75,8 +75,9 @@ class MarketAnalysisAgent(BaseAgent):
     name = "market_analysis_agent"
     section_name = "market analysis"
     objective = "support the sale case with market logic"
+    proposal_section_id = "market_context"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

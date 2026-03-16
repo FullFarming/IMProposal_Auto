@@ -75,8 +75,9 @@ class EnduserStrategyAgent(BaseAgent):
     name = "enduser_strategy_agent"
     section_name = "end-user strategy"
     objective = "build occupier acquisition logic"
+    proposal_section_id = "buyer_strategy"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

@@ -1,5 +1,5 @@
 """
-CLI 진입점 — JSON 입력 파일을 받아 6단계 파이프라인을 실행한다.
+CLI 진입점 — JSON 입력 파일을 받아 8단계 파이프라인을 실행한다.
 
 Usage:
     python -m core.cli --input data/sample_input/sample_asset.json
@@ -32,7 +32,7 @@ def setup_logging(verbose: bool = False) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="상업용 부동산 매각 자문 제안서 자동 생성 파이프라인"
+        description="상업용 부동산 매각 자문 제안서 자동 생성 파이프라인 (8-Step)"
     )
     parser.add_argument(
         "--input", "-i",
@@ -81,25 +81,41 @@ async def run_pipeline(args: argparse.Namespace) -> None:
 
     # 요약 출력
     print("\n" + "=" * 60)
-    print("제안서 자동 생성 완료")
+    print("PROPOSAL GENERATION COMPLETE")
     print("=" * 60)
-    print(f"  최종 슬라이드 수: {len(result.final_slide_blocks)}")
+    print(f"  Total slides: {len(result.final_slide_blocks)}")
+
+    # 섹션별 슬라이드 수
+    if result.assembled_proposal:
+        print("\n  Section breakdown:")
+        for section in result.section_order:
+            sid = section["section_id"]
+            count = len(result.assembled_proposal.get(sid, []))
+            marker = "  " if count > 0 else "!!"
+            print(f"  {marker} {section['section_name']}: {count} slides")
 
     if result.qa_result:
-        print(f"  QA 점수: {result.qa_result.overall_score}/100")
-        print(f"  QA 판정: {result.qa_result.final_recommendation}")
+        print(f"\n  QA score: {result.qa_result.overall_score}/100")
+        print(f"  Narrative coherence: {result.qa_result.narrative_coherence_score}/100")
+        print(f"  Recommendation: {result.qa_result.final_recommendation}")
         if result.qa_result.critical_issues:
-            print(f"  주요 이슈: {len(result.qa_result.critical_issues)}건")
+            print(f"  Critical issues: {len(result.qa_result.critical_issues)}")
 
-    human_items = result.project_understanding.get("human_review_items", [])
-    if human_items:
-        print(f"\n  ⚠ 수동 검토 필요 항목:")
-        for item in human_items:
+    if result.all_missing_data:
+        print(f"\n  Missing data items: {len(result.all_missing_data)}")
+
+    if result.all_human_validation:
+        print(f"\n  Human validation required:")
+        for item in result.all_human_validation[:10]:
             print(f"    - {item}")
+        if len(result.all_human_validation) > 10:
+            print(f"    ... and {len(result.all_human_validation) - 10} more")
 
-    print(f"\n  출력 디렉터리: {out_dir.resolve()}")
-    print(f"  - proposal_output.json  (전체 결과)")
-    print(f"  - final_slides.json     (최종 슬라이드 블록)")
+    print(f"\n  Output directory: {out_dir.resolve()}")
+    print(f"  - proposal_output.json     (full pipeline result)")
+    print(f"  - final_slides.json        (ordered slide blocks)")
+    print(f"  - assembled_proposal.json  (section-grouped slides)")
+    print(f"  - human_review_items.json  (items needing human review)")
     print("=" * 60)
 
 

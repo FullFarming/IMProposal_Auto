@@ -31,6 +31,15 @@ class SlideBlock(BaseModel):
         "", description="템플릿 준수 관련 참고사항"
     )
     speaker_note: str = Field("", description="발표자 메모")
+    proposal_section: str = Field(
+        "",
+        description=(
+            "이 슬라이드가 속하는 제안서 섹션 ID. "
+            "cover / credentials / asset_understanding / market_context / "
+            "pricing_logic / buyer_strategy / sale_strategy / "
+            "execution_plan / track_record"
+        ),
+    )
 
 
 class AgentOutput(BaseModel):
@@ -44,6 +53,7 @@ class AgentOutput(BaseModel):
     slide_blocks: list[SlideBlock] = Field(default_factory=list)
     risks_or_gaps: list[str] = Field(default_factory=list)
     requires_human_validation: list[str] = Field(default_factory=list)
+    missing_data: list[str] = Field(default_factory=list)
     raw_extras: dict = Field(
         default_factory=dict,
         description="에이전트별 추가 필드 (buyer_segments, valuation_range 등)",

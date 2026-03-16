@@ -81,8 +81,9 @@ class ValuationAgent(BaseAgent):
     name = "valuation_agent"
     section_name = "valuation and pricing strategy"
     objective = "produce defendable pricing logic"
+    proposal_section_id = "pricing_logic"
 
-    def system_prompt(self) -> str:
+    def _agent_prompt(self) -> str:
         return SYSTEM_PROMPT
 
     def build_user_message(self, context: dict[str, Any]) -> str:

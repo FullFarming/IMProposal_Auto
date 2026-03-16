@@ -20,4 +20,8 @@ class TemplateGuardianOutput(BaseModel):
     layout_guidance: str = ""
     density_warning: str = ""
     rewrite_rules: list[str] = Field(default_factory=list)
+    split_suggestion: dict | None = Field(
+        default=None,
+        description="content_decision이 'split'일 때 분할된 두 블록",
+    )
     final_template_ready_block: SlideBlock | None = None
