@@ -1,0 +1,102 @@
+{
+  "asset_data": {
+    "asset_name": "강남 프라임 오피스 빌딩",
+    "asset_type": "오피스",
+    "address": "서울시 강남구 테헤란로 XXX",
+    "gfa_sqm": 45000,
+    "nla_sqm": 32000,
+    "floors_above": 25,
+    "floors_below": 5,
+    "completion_year": 2015,
+    "land_area_sqm": 3200,
+    "parking_spaces": 350,
+    "green_certification": "LEED Gold",
+    "current_occupancy_pct": 92.5,
+    "weighted_avg_lease_expiry_years": 3.2,
+    "major_tenants": [
+      {"name": "글로벌 IT 기업 A", "area_sqm": 8000, "lease_expiry": "2028-06"},
+      {"name": "국내 금융사 B", "area_sqm": 5500, "lease_expiry": "2027-03"},
+      {"name": "외국계 컨설팅 C", "area_sqm": 3200, "lease_expiry": "2026-12"}
+    ],
+    "monthly_rent_per_sqm_krw": 95000,
+    "annual_noi_krw_billion": 28.5,
+    "recent_capex_notes": "2023년 로비 리모델링 완료, 엘리베이터 교체 예정",
+    "upside_potential": [
+      "공실 7.5% 해소 시 NOI 상승 가능",
+      "리테일 저층부 리포지셔닝 여지",
+      "임대료 갱신 시 시장 대비 5-8% 상승 가능"
+    ]
+  },
+  "location_data": {
+    "district": "강남구",
+    "submarket": "테헤란로",
+    "nearest_subway": "강남역 2호선 도보 5분",
+    "bus_routes": "다수 간선/지선 노선",
+    "nearby_landmarks": ["코엑스", "삼성역", "봉은사"],
+    "surrounding_companies": [
+      "글로벌 IT 기업 다수",
+      "국내 대형 금융사 본사",
+      "외국계 컨설팅/법률 사무소"
+    ],
+    "district_identity": "한국 최대 비즈니스 중심지, 프라임 오피스 수요 집중",
+    "future_catalysts": [
+      "영동대로 복합환승센터 개발",
+      "현대자동차 GBC 프로젝트",
+      "잠실 MICE 복합단지"
+    ],
+    "micro_location_strengths": [
+      "대중교통 접근성 우수",
+      "기업 밀집도 최고",
+      "브랜드 가치 높은 주소지"
+    ]
+  },
+  "market_data": {
+    "macro_context": "금리 하향 안정화 추세, 부동산 투자 심리 회복 중",
+    "office_investment_market": {
+      "total_transaction_volume_2025_krw_trillion": 8.2,
+      "yoy_change_pct": 12.5,
+      "primary_buyer_types": ["리츠", "블라인드펀드", "외국계 투자자"],
+      "cap_rate_range_pct": "4.0 - 4.8",
+      "sentiment": "회복세, 프라임 자산 선호 지속"
+    },
+    "leasing_market": {
+      "cbd_vacancy_pct": 8.2,
+      "gbd_vacancy_pct": 5.1,
+      "ybd_vacancy_pct": 11.5,
+      "avg_asking_rent_gbd_per_sqm_krw": 92000,
+      "rent_growth_forecast_pct": "3-5% (연간)",
+      "absorption_trend": "양호 — 대형 면적 위주 수요"
+    },
+    "competing_supply": {
+      "pipeline_2026_2028_sqm": 180000,
+      "key_projects": [
+        "삼성동 A 프로젝트 (2027)",
+        "역삼동 B 프로젝트 (2028)"
+      ],
+      "impact_assessment": "제한적 — 프라임 등급 경쟁은 소수"
+    },
+    "comparable_transactions": [
+      {
+        "name": "강남 오피스 X",
+        "date": "2025-06",
+        "price_krw_billion": 680,
+        "cap_rate_pct": 4.2,
+        "sqm_price_krw_million": 18.5
+      },
+      {
+        "name": "테헤란로 오피스 Y",
+        "date": "2025-03",
+        "price_krw_billion": 520,
+        "cap_rate_pct": 4.5,
+        "sqm_price_krw_million": 17.2
+      },
+      {
+        "name": "GBD 오피스 Z",
+        "date": "2024-11",
+        "price_krw_billion": 410,
+        "cap_rate_pct": 4.7,
+        "sqm_price_krw_million": 16.0
+      }
+    ]
+  }
+}

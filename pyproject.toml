@@ -1,0 +1,20 @@
+[project]
+name = "im-proposal-auto"
+version = "0.1.0"
+description = "Multi-agent system for automating commercial real estate sell-side advisory proposals"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "asyncio-pool>=0.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+proposal = "core.cli:main"
