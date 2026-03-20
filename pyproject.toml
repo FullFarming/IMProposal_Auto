@@ -16,5 +16,8 @@ dev = [
     "pytest-asyncio>=0.23",
 ]
 
+[tool.setuptools.packages.find]
+include = ["core*", "agents*", "config*", "schemas*"]
+
 [project.scripts]
 proposal = "core.cli:main"
